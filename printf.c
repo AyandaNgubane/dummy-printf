@@ -1,6 +1,6 @@
 #include "printf.h"
 #include <stdarg.h>
-#include <stdio.h>
+#include <unistd.h>
 
 /**
  * _printf - similar to printf
@@ -13,7 +13,7 @@ int _printf(const char *format, ...)
 	int i, j, length;
 	char *str;
 	va_list args;
-	
+
 	length = 0;
 
 	if (format)
@@ -22,7 +22,7 @@ int _printf(const char *format, ...)
 
 		for (i = 0; format[i] != '\0'; i++)
 		{
-			if (format [i - 1] == '%')
+			if (format[i - 1] == '%')
 			{
 				switch (format[i])
 				{
